@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
-import { FiCode, FiUsers, FiTrendingUp, FiExternalLink } from 'react-icons/fi';
-import { FaGithub } from 'react-icons/fa';
+import { FiCode, FiUsers, FiTrendingUp } from 'react-icons/fi';
 
 const About = ({ activeSection, setActiveSection }) => {
   const ref = useRef(null);
