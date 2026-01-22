@@ -143,10 +143,11 @@ Contributions, issues, and feature requests are welcome! Feel free to check the 
 ## 📞 Contact
 
 **Vivek Joshi**
-- Email: vivek.joshi@email.com
-- Phone: +91 12345 67890
+- Email: vivekjoshi.53107@email.com
+- Phone: +91 9106129458
 - LinkedIn: [linkedin.com/in/vivekjoshi](https://linkedin.com/in/vivekjoshi)
-- GitHub: [github.com/vivekjoshi](https://github.com/vivekjoshi)
+- GitHub: [github.com/vivekjoshi53](https://github.com/vivekjoshi53)
+- WhatsApp: [wa.me/9106129458](https://wa.me/9106129458)
 
 ---
 

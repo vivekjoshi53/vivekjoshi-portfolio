@@ -8,6 +8,8 @@ const Contact = ({ activeSection, setActiveSection }) => {
   const [isInView, setIsInView] = useState(false);
   
   useEffect(() => {
+    const savedRef = ref.current; // Store ref in a variable
+    
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -19,13 +21,13 @@ const Contact = ({ activeSection, setActiveSection }) => {
       { threshold: 0.3, once: true }
     );
     
-    if (ref.current) {
-      observer.observe(ref.current);
+    if (savedRef) {
+      observer.observe(savedRef);
     }
     
     return () => {
-      if (ref.current) {
-        observer.unobserve(ref.current);
+      if (savedRef) {
+        observer.unobserve(savedRef);
       }
     };
   }, [setActiveSection]);

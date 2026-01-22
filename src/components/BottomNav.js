@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FiHome, FiUser, FiCode, FiBriefcase, FiFolder, FiMail } from 'react-icons/fi';
+import { FiHome, FiUser, FiCode, FiFolder, FiMail } from 'react-icons/fi';
 
 const BottomNav = ({ activeSection, setActiveSection }) => {
   const navItems = [

@@ -6,6 +6,8 @@ const Hero = ({ activeSection, setActiveSection }) => {
   const sectionRef = useRef(null);
 
   useEffect(() => {
+    const savedRef = sectionRef.current; // Store ref in a variable
+    
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -15,13 +17,13 @@ const Hero = ({ activeSection, setActiveSection }) => {
       { threshold: 0.5 }
     );
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
+    if (savedRef) {
+      observer.observe(savedRef);
     }
 
     return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
+      if (savedRef) {
+        observer.unobserve(savedRef);
       }
     };
   }, [setActiveSection]);
