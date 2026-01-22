@@ -27,7 +27,7 @@ const LoadingScreen = ({ onComplete }) => {
   // Typing effect for roles
   useEffect(() => {
     if (showSubtitle) {
-      const role = "Fresher Developer";
+      const role = "Web-Developer";
       if (roleText.length < role.length) {
         const timer = setTimeout(() => {
           setRoleText(role.slice(0, roleText.length + 1));
