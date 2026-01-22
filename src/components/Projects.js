@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
-import { FiExternalLink, FiGithub, FiCode } from 'react-icons/fi';
+import { FiExternalLink, FiGithub, FiCode, FiArrowUpRight } from 'react-icons/fi';
 
 const Projects = ({ activeSection, setActiveSection }) => {
   const ref = useRef(null);
@@ -60,60 +60,68 @@ const Projects = ({ activeSection, setActiveSection }) => {
     }
   };
 
+  const [hoveredProject, setHoveredProject] = useState(null);
+
   const projects = [
     {
       title: "E-Commerce Platform",
       description: "A full-stack e-commerce application built with React and Node.js featuring user authentication, product management, and payment integration.",
       image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=500&h=300&fit=crop",
       tech: ["React", "Node.js", "MongoDB", "Express"],
-      github: "#",
-      live: "#",
-      featured: true
+      github: "https://github.com/vivekjoshi53/ecommerce-platform",
+      live: "https://ecommerce-demo.vercel.app",
+      featured: true,
+      status: "Completed"
     },
     {
       title: "Task Management App",
       description: "A collaborative task management application with real-time updates, drag-and-drop functionality, and team collaboration features.",
       image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=500&h=300&fit=crop",
       tech: ["React", "Firebase", "Tailwind CSS"],
-      github: "#",
-      live: "#",
-      featured: true
+      github: "https://github.com/vivekjoshi53/task-manager",
+      live: "https://taskmanager-demo.vercel.app",
+      featured: true,
+      status: "In Progress"
     },
     {
       title: "Weather Dashboard",
       description: "A responsive weather application that provides current weather conditions and forecasts with beautiful visualizations.",
       image: "https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?w=500&h=300&fit=crop",
       tech: ["JavaScript", "API Integration", "CSS3"],
-      github: "#",
-      live: "#",
-      featured: false
+      github: "https://github.com/vivekjoshi53/weather-dashboard",
+      live: "https://weather-demo.vercel.app",
+      featured: false,
+      status: "Completed"
     },
     {
       title: "Portfolio Website",
       description: "A modern, responsive portfolio website showcasing projects and skills with smooth animations and dark mode support.",
       image: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=500&h=300&fit=crop",
       tech: ["React", "Framer Motion", "Tailwind CSS"],
-      github: "#",
-      live: "#",
-      featured: false
+      github: "https://github.com/vivekjoshi53/VivekJoshi-portfolio",
+      live: "https://vivekjoshi-portfolio.vercel.app",
+      featured: false,
+      status: "Completed"
     },
     {
       title: "Blog Platform",
       description: "A full-featured blog platform with user authentication, rich text editor, and comment system built with modern technologies.",
       image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=500&h=300&fit=crop",
       tech: ["React", "Node.js", "MongoDB", "JWT"],
-      github: "#",
-      live: "#",
-      featured: false
+      github: "https://github.com/vivekjoshi53/blog-platform",
+      live: "https://blog-demo.vercel.app",
+      featured: false,
+      status: "Planning"
     },
     {
       title: "Chat Application",
       description: "Real-time chat application with multiple rooms, file sharing, and emoji support using Socket.io for instant messaging.",
       image: "https://images.unsplash.com/photo-1577563908411-5077b6dc7624?w=500&h=300&fit=crop",
       tech: ["React", "Socket.io", "Node.js", "Express"],
-      github: "#",
-      live: "#",
-      featured: false
+      github: "https://github.com/vivekjoshi53/chat-app",
+      live: "https://chat-demo.vercel.app",
+      featured: false,
+      status: "Completed"
     }
   ];
 
@@ -167,55 +175,105 @@ const Projects = ({ activeSection, setActiveSection }) => {
               <motion.div
                 key={index}
                 variants={cardVariants}
+                onMouseEnter={() => setHoveredProject(index)}
+                onMouseLeave={() => setHoveredProject(null)}
                 whileHover={{ 
-                  y: -10,
-                  boxShadow: "0 20px 40px rgba(0,0,0,0.1)"
+                  y: -15,
+                  boxShadow: "0 25px 50px rgba(0,0,0,0.2)",
+                  scale: 1.02
                 }}
-                className="group bg-gray-50 dark:bg-gray-800 rounded-xl overflow-hidden border border-gray-200 dark:border-gray-700 hover:border-primary-300 dark:hover:border-primary-600 transition-all duration-300"
+                className="group bg-white dark:bg-gray-800 rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-700 hover:border-primary-300 dark:hover:border-primary-600 transition-all duration-500 relative"
               >
+                {/* Status Badge */}
+                <div className={`absolute top-4 left-4 z-10 px-3 py-1 rounded-full text-xs font-semibold ${
+                  project.status === 'Completed' 
+                    ? 'bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-300' 
+                    : project.status === 'In Progress'
+                    ? 'bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300'
+                    : 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-300'
+                }`}>
+                  {project.status}
+                </div>
+
                 <div className="relative overflow-hidden">
                   <img 
                     src={project.image} 
                     alt={project.title}
-                    className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
+                    className="w-full h-52 object-cover group-hover:scale-110 transition-transform duration-700"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  <div className="absolute top-4 right-4 flex space-x-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  
+                  {/* Overlay gradient */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  
+                  {/* Action buttons */}
+                  <div className="absolute top-4 right-4 flex space-x-2 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
                     <motion.a
                       href={project.github}
-                      whileHover={{ scale: 1.1 }}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      whileHover={{ scale: 1.1, rotate: 5 }}
                       whileTap={{ scale: 0.9 }}
-                      className="p-2 bg-white/20 backdrop-blur-sm rounded-full text-white hover:bg-white/30 transition-colors"
+                      className="p-3 bg-white/20 backdrop-blur-lg rounded-full text-white hover:bg-white/30 transition-all duration-200 border border-white/30"
                     >
                       <FiGithub size={20} />
                     </motion.a>
                     <motion.a
                       href={project.live}
-                      whileHover={{ scale: 1.1 }}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      whileHover={{ scale: 1.1, rotate: -5 }}
                       whileTap={{ scale: 0.9 }}
-                      className="p-2 bg-white/20 backdrop-blur-sm rounded-full text-white hover:bg-white/30 transition-colors"
+                      className="p-3 bg-white/20 backdrop-blur-lg rounded-full text-white hover:bg-white/30 transition-all duration-200 border border-white/30"
                     >
                       <FiExternalLink size={20} />
                     </motion.a>
                   </div>
+
+                  {/* View more button */}
+                  <motion.div 
+                    className="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                    initial={{ y: 20 }}
+                    whileHover={{ y: 0 }}
+                  >
+                    <button className="w-full py-2 bg-white/20 backdrop-blur-lg rounded-lg text-white font-medium hover:bg-white/30 transition-all duration-200 border border-white/30">
+                      View Details
+                    </button>
+                  </motion.div>
                 </div>
                 
                 <div className="p-6">
-                  <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
-                    {project.title}
-                  </h4>
+                  <div className="flex items-start justify-between mb-3">
+                    <h4 className="text-xl font-bold text-gray-900 dark:text-white">
+                      {project.title}
+                    </h4>
+                    <motion.div
+                      animate={{ rotate: hoveredProject === index ? 12 : 0 }}
+                      className="text-primary-500"
+                    >
+                      <FiArrowUpRight size={24} />
+                    </motion.div>
+                  </div>
+                  
                   <p className="text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">
                     {project.description}
                   </p>
-                  <div className="flex flex-wrap gap-2">
+                  
+                  <div className="flex flex-wrap gap-2 mb-4">
                     {project.tech.map((tech, techIndex) => (
-                      <span
+                      <motion.span
                         key={techIndex}
-                        className="px-3 py-1 bg-primary-100 dark:bg-primary-900/30 text-primary-700 dark:text-primary-300 rounded-full text-sm font-medium"
+                        whileHover={{ scale: 1.05 }}
+                        className="px-3 py-1 bg-gradient-to-r from-primary-100 to-secondary-100 dark:from-primary-900/30 dark:to-secondary-900/30 text-primary-700 dark:text-primary-300 rounded-full text-sm font-medium shadow-sm"
                       >
                         {tech}
-                      </span>
+                      </motion.span>
                     ))}
+                  </div>
+                  
+                  {/* Project stats */}
+                  <div className="flex justify-between text-sm text-gray-500 dark:text-gray-400">
+                    <span>⭐ Featured Project</span>
+                    <span>{project.tech.length} technologies</span>
                   </div>
                 </div>
               </motion.div>

@@ -4,23 +4,99 @@
     <meta charset="utf-8" />
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="Vivek Joshi - Fresher Developer & Intern at Codage Habitation. Portfolio showcasing skills in React, Node.js, MongoDB, and more."
-    />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <meta name="theme-color" content="#6366f1" />
     
-    <!-- Google Fonts -->
+    <!-- Primary Meta Tags -->
+    <title>Vivek Joshi - Full Stack Developer & Portfolio</title>
+    <meta name="title" content="Vivek Joshi - Full Stack Developer & Portfolio">
+    <meta name="description" content="Fresher Full Stack Developer specializing in React, Node.js, and modern web technologies. Currently interning at Codage Habitation. Explore my projects and skills.">
+    <meta name="author" content="Vivek Joshi">
+    <meta name="keywords" content="Vivek Joshi, Full Stack Developer, React Developer, Node.js Developer, Portfolio, Web Development, JavaScript, MongoDB, Express.js, Frontend Developer, Backend Developer">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://vivekjoshi53.github.io/VivekJoshi-portfolio/">
+    <meta property="og:title" content="Vivek Joshi - Full Stack Developer & Portfolio">
+    <meta property="og:description" content="Fresher Full Stack Developer specializing in React, Node.js, and modern web technologies. Currently interning at Codage Habitation.">
+    <meta property="og:image" content="%PUBLIC_URL%/preview.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://vivekjoshi53.github.io/VivekJoshi-portfolio/">
+    <meta property="twitter:title" content="Vivek Joshi - Full Stack Developer & Portfolio">
+    <meta property="twitter:description" content="Fresher Full Stack Developer specializing in React, Node.js, and modern web technologies.">
+    <meta property="twitter:image" content="%PUBLIC_URL%/preview.jpg">
+    
+    <!-- Additional SEO -->
+    <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow">
+    <link rel="canonical" href="https://vivekjoshi53.github.io/VivekJoshi-portfolio/">
+    
+    <!-- Preload critical resources -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
-    <title>Vivek Joshi - Developer Portfolio</title>
+    <!-- Preload fonts -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
+    
+    <!-- DNS prefetch -->
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    
+    <!-- Apple Touch Icons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="%PUBLIC_URL%/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="%PUBLIC_URL%/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="%PUBLIC_URL%/favicon-16x16.png">
+    
+    <!-- Manifest -->
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Vivek Joshi",
+      "url": "https://vivekjoshi53.github.io/VivekJoshi-portfolio/",
+      "jobTitle": "Full Stack Developer",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Codage Habitation"
+      },
+      "sameAs": [
+        "https://github.com/vivekjoshi53",
+        "https://linkedin.com/in/vivekjoshi",
+        "https://wa.me/9106129458"
+      ]
+    }
+    </script>
   </head>
-  <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
+  <body class="bg-white dark:bg-gray-900">
+    <noscript>
+      <div class="flex items-center justify-center min-h-screen bg-gray-50 dark:bg-gray-900">
+        <div class="text-center p-8 bg-white dark:bg-gray-800 rounded-xl shadow-lg max-w-md mx-4">
+          <h1 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">JavaScript Required</h1>
+          <p class="text-gray-600 dark:text-gray-300">
+            You need to enable JavaScript to run this portfolio website. 
+            Please enable JavaScript in your browser settings.
+          </p>
+        </div>
+      </div>
+    </noscript>
     <div id="root"></div>
+    
+    <!-- Performance monitoring -->
+    <script>
+      // Performance monitoring
+      if ('performance' in window) {
+        window.addEventListener('load', () => {
+          setTimeout(() => {
+            const perfData = performance.getEntriesByType('navigation')[0];
+            console.log('Page Load Time:', perfData.loadEventEnd - perfData.fetchStart + 'ms');
+          }, 0);
+        });
+      }
+    </script>
   </body>
 </html>

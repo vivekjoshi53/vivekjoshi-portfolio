@@ -70,20 +70,49 @@ const Contact = ({ activeSection, setActiveSection }) => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
-    setTimeout(() => {
-      // Create WhatsApp message
-      const message = `Hi Vivek! I'm ${formData.name}. ${formData.message}`;
-      const whatsappUrl = `https://wa.me/9106129458?text=${encodeURIComponent(message)}`;
+    // Create WhatsApp message with proper formatting
+    const message = `👋 Hello Vivek!
+
+I'm ${formData.name} (${formData.email}) and I'd like to connect with you.
+
+${formData.message}
+
+Looking forward to hearing from you!
+
+Best regards,
+${formData.name}`;
+
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappUrl = `https://wa.me/9106129458?text=${encodedMessage}`;
+    
+    try {
+      // Open WhatsApp in new tab
+      window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
       
-      // Open WhatsApp
-     
-      window.open(whatsappUrl, '_blank');
+      // Show success feedback
+      setTimeout(() => {
+        alert('Message sent successfully! WhatsApp should have opened with your message pre-filled.');
+      }, 500);
       
       // Reset form
       setFormData({ name: '', email: '', message: '' });
+    } catch (error) {
+      console.error('Error opening WhatsApp:', error);
+      // Fallback: Copy message to clipboard
+      navigator.clipboard.writeText(message).then(() => {
+        alert('WhatsApp link opened! Your message has been copied to clipboard.');
+      }).catch(() => {
+        alert(`Click this link to message me on WhatsApp: ${whatsappUrl}`);
+      });
+    } finally {
       setIsSubmitting(false);
-    }, 1000);
+    }
+  };
+
+  const handleWhatsAppClick = () => {
+    const quickMessage = encodeURIComponent("Hi Vivek! I saw your portfolio and would like to connect.");
+    const whatsappUrl = `https://wa.me/9106129458?text=${quickMessage}`;
+    window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
   };
 
   const contactInfo = [
@@ -111,26 +140,31 @@ const Contact = ({ activeSection, setActiveSection }) => {
     {
       icon: FaWhatsapp,
       name: "WhatsApp",
-      url: "https://wa.me/9106129458",
-      color: "text-green-500"
+      url: "#",
+      color: "text-green-500",
+      bgColor: "bg-green-500",
+      onClick: handleWhatsAppClick
     },
     {
       icon: FaLinkedin,
       name: "LinkedIn",
       url: "https://linkedin.com/in/vivekjoshi",
-      color: "text-blue-600"
+      color: "text-blue-600",
+      bgColor: "bg-blue-600"
     },
     {
       icon: FaGithub,
       name: "GitHub",
       url: "https://github.com/vivekjoshi53",
-      color: "text-gray-700 dark:text-gray-300"
+      color: "text-gray-700 dark:text-gray-300",
+      bgColor: "bg-gray-700"
     },
     {
       icon: FaTwitter,
       name: "Twitter",
       url: "https://twitter.com/vivekjoshi",
-      color: "text-blue-400"
+      color: "text-blue-400",
+      bgColor: "bg-blue-400"
     }
   ];
 
@@ -218,13 +252,27 @@ const Contact = ({ activeSection, setActiveSection }) => {
                   <motion.a
                     key={index}
                     href={social.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    whileHover={{ scale: 1.2, rotate: 5 }}
+                    target={social.onClick ? "_self" : "_blank"}
+                    rel={social.onClick ? undefined : "noopener noreferrer"}
+                    onClick={social.onClick || undefined}
+                    whileHover={{ 
+                      scale: 1.2, 
+                      rotate: social.name === "WhatsApp" ? [0, -10, 10, 0] : 5,
+                      y: -5
+                    }}
                     whileTap={{ scale: 0.9 }}
-                    className={`p-3 bg-gray-100 dark:bg-gray-800 rounded-lg ${social.color} hover:bg-gray-200 dark:hover:bg-gray-700 transition-all duration-300`}
+                    className={`p-4 ${social.bgColor} text-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center group relative overflow-hidden`}
                   >
-                    {React.createElement(social.icon, { size: 24 })}
+                    <div className="relative z-10">
+                      {React.createElement(social.icon, { size: 24 })}
+                    </div>
+                    {/* Hover effect overlay */}
+                    <div className="absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl" />
+                    
+                    {/* Tooltip */}
+                    <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 bg-gray-900 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
+                      {social.name}
+                    </div>
                   </motion.a>
                 ))}
               </div>

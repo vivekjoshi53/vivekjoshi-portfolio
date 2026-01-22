@@ -49,30 +49,96 @@ const Hero = ({ activeSection, setActiveSection }) => {
   };
 
   const floatingShapes = [
-    { size: 'w-20 h-20', position: 'top-20 left-10', delay: 0 },
-    { size: 'w-16 h-16', position: 'top-40 right-20', delay: 2 },
-    { size: 'w-12 h-12', position: 'bottom-40 left-20', delay: 4 },
-    { size: 'w-24 h-24', position: 'bottom-20 right-10', delay: 1 }
+    { size: 'w-32 h-32', position: 'top-10 left-5', delay: 0, color: 'from-blue-400/30 to-purple-400/30' },
+    { size: 'w-24 h-24', position: 'top-32 right-10', delay: 1, color: 'from-green-400/30 to-blue-400/30' },
+    { size: 'w-20 h-20', position: 'bottom-40 left-10', delay: 2, color: 'from-purple-400/30 to-pink-400/30' },
+    { size: 'w-28 h-28', position: 'bottom-20 right-5', delay: 3, color: 'from-yellow-400/30 to-red-400/30' },
+    { size: 'w-16 h-16', position: 'top-1/2 left-1/4', delay: 4, color: 'from-indigo-400/30 to-blue-400/30' },
+    { size: 'w-20 h-20', position: 'top-1/3 right-1/3', delay: 5, color: 'from-pink-400/30 to-purple-400/30' }
   ];
+
+  // const wavePoints = [
+  //   { x: 0, y: 60 },
+  //   { x: 25, y: 40 },
+  //   { x: 50, y: 70 },
+  //   { x: 75, y: 30 },
+  //   { x: 100, y: 60 }
+  // ];
 
   return (
     <section id="home" ref={sectionRef} className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-gray-50 via-blue-50 to-purple-50 dark:from-gray-900 dark:via-blue-900/20 dark:to-purple-900/20">
-      {/* Animated Background Shapes */}
+      {/* Enhanced Animated Background */}
       <div className="absolute inset-0">
+        {/* Gradient waves */}
+        <div className="absolute inset-0 opacity-20">
+          <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <defs>
+              <linearGradient id="waveGradient1" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="#3B82F6" stopOpacity="0.3" />
+                <stop offset="100%" stopColor="#8B5CF6" stopOpacity="0.2" />
+              </linearGradient>
+              <linearGradient id="waveGradient2" x1="100%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stopColor="#10B981" stopOpacity="0.3" />
+                <stop offset="100%" stopColor="#3B82F6" stopOpacity="0.2" />
+              </linearGradient>
+            </defs>
+            <path 
+              d="M0,50 Q25,30 50,60 T100,50 L100,100 L0,100 Z" 
+              fill="url(#waveGradient1)"
+              className="animate-pulse"
+            />
+            <path 
+              d="M0,70 Q25,90 50,60 T100,70 L100,100 L0,100 Z" 
+              fill="url(#waveGradient2)"
+              className="animate-pulse"
+              style={{ animationDelay: '1s' }}
+            />
+          </svg>
+        </div>
+
+        {/* Floating shapes with enhanced animations */}
         {floatingShapes.map((shape, index) => (
           <motion.div
             key={index}
-            className={`absolute ${shape.size} ${shape.position} bg-gradient-to-br from-primary-400/20 to-secondary-400/20 rounded-full blur-xl`}
+            className={`absolute ${shape.size} ${shape.position} rounded-full blur-xl`}
             animate={{
-              y: [0, -20, 0],
+              y: [0, -30, 0],
+              x: [0, Math.sin(index) * 20, 0],
               rotate: [0, 180, 360],
-              scale: [1, 1.1, 1]
+              scale: [1, 1.2, 1],
+              opacity: [0.3, 0.6, 0.3]
             }}
             transition={{
-              duration: 6 + shape.delay,
+              duration: 8 + shape.delay,
               repeat: Infinity,
               ease: "easeInOut",
               delay: shape.delay
+            }}
+          >
+            <div className={`w-full h-full bg-gradient-to-br ${shape.color} rounded-full`} />
+          </motion.div>
+        ))}
+
+        {/* Particle effects */}
+        {[...Array(8)].map((_, i) => (
+          <motion.div
+            key={`particle-${i}`}
+            className="absolute w-1 h-1 bg-white/40 rounded-full"
+            animate={{
+              y: [0, -100],
+              x: [0, (Math.random() - 0.5) * 100],
+              opacity: [0, 1, 0],
+              scale: [0, 1, 0]
+            }}
+            transition={{
+              duration: 3 + Math.random() * 2,
+              repeat: Infinity,
+              delay: i * 0.5,
+              ease: "easeOut"
+            }}
+            style={{
+              left: `${10 + i * 10}%`,
+              top: `${30 + (i % 3) * 20}%`
             }}
           />
         ))}
