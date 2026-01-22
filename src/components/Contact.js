@@ -123,7 +123,7 @@ const Contact = ({ activeSection, setActiveSection }) => {
     {
       icon: FaGithub,
       name: "GitHub",
-      url: "https://github.com/vivekjoshi",
+      url: "https://github.com/vivekjoshi53",
       color: "text-gray-700 dark:text-gray-300"
     },
     {
