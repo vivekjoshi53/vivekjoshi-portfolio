@@ -3,7 +3,7 @@
 A modern, animated portfolio website built with React, Tailwind CSS, and Framer Motion showcasing the skills and projects of Vivek Joshi, a Web Developer and intern at Codage Habitation.
 
 ## 🌟 Live Demo
-Visit the live portfolio: [vivek-joshi-dev.vercel.app](https://vivek-joshi-dev.vercel.app)
+Visit the live portfolio: [vivekjoshi-portfolio.vercel.app](https://vivekjoshi-portfolio.vercel.app)
 
 *Last updated: January 2026*
 
