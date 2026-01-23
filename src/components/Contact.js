@@ -155,7 +155,7 @@ ${formData.name}`;
     {
       icon: FaGithub,
       name: "GitHub",
-      url: "https://github.com/vivekjoshi53",
+      url: "https://github.com/VIVEK JOSHI",
       color: "text-gray-700 dark:text-gray-300",
       bgColor: "bg-gray-700"
     },
