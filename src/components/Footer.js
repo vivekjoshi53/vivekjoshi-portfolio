@@ -131,11 +131,11 @@ const Footer = () => {
               </p>
               <p>
                 <span className="block font-medium text-white">Phone:</span>
-                +91 12345 67890
+                +91 9106129458
               </p>
               <p>
                 <span className="block font-medium text-white">Location:</span>
-                India
+                Kalol 
               </p>
             </div>
           </motion.div>
