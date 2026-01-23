@@ -138,11 +138,43 @@ const About = ({ activeSection, setActiveSection }) => {
             <div className="relative">
               {/* Main Profile Picture */}
               <motion.div
-                variants={profilePictureVariants}
+                variants={{
+                  hidden: { 
+                  y: 50, 
+                  opacity: 0,
+                },
+                visible: {
+                  y: 0,
+                  opacity: 1,
+                  transition: { 
+                    duration: 0.8, 
+                    ease: "easeOut",
+                    delay: 0.3
+                  }
+                },
+                exit: {
+                  y: -50,
+                  opacity: 0,
+                  transition: { 
+                    duration: 0.5, 
+                    ease: "easeIn"
+                  }
+                },
+                hover: {
+                  scale: 1.05,
+                  transition: { 
+                    duration: 0.3,
+                    ease: "easeInOut"
+                  }
+                }
+              }}
                 whileHover="hover"
+                initial="hidden"
+                animate={isInView ? "visible" : "hidden"}
+                exit="exit"
                 className="relative z-10"
               >
-                <div className="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-gray-800 shadow-2xl">
+                <div className="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border border-white/30 backdrop-blur-sm shadow-xl bg-white/10">
                   <img 
                     src="/img1.webp" 
                     alt="Vivek Joshi - Developer Portrait"

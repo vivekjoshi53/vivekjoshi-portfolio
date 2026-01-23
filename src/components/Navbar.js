@@ -58,10 +58,16 @@ const Navbar = ({ activeSection }) => {
           : 'bg-transparent'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-3 items-center h-16">
-          {/* Empty left column for balance */}
-          <div className="flex justify-start"></div>
+      <div className="max-w-7xl mx-auto px-6 sm:px-6 lg:px-8">
+        <div className="flex md:grid md:grid-cols-3 items-center h-16 justify-between md:justify-normal">
+          {/* Left side - VIVEK JOSHI (mobile only) with gradient */}
+          <div className="flex justify-start">
+            <div className="md:hidden flex items-center">
+              <span className="text-lg font-bold bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent whitespace-nowrap">
+                VIVEK JOSHI
+              </span>
+            </div>
+          </div>
 
           {/* Desktop Navigation - centered in middle column */}
           <div className="hidden md:flex justify-center">
@@ -99,9 +105,10 @@ const Navbar = ({ activeSection }) => {
             </div>
           </div>
 
-          {/* Resume Button - right side */}
-          <div className="flex justify-end">
-            <div className="hidden md:flex items-center">
+          {/* Right side - Resume button (desktop) and Hamburger menu (mobile) */}
+          <div className="flex justify-end items-center">
+            {/* Resume Button - desktop only */}
+            <div className="hidden md:block">
               <a 
                 href="/vivekjoshi resume.pdf" 
                 target="_blank" 
@@ -112,8 +119,8 @@ const Navbar = ({ activeSection }) => {
               </a>
             </div>
 
-            {/* Mobile menu button */}
-            <div className="md:hidden flex items-center">
+            {/* Mobile menu button - mobile only (far right with space-between) */}
+            <div className="md:hidden">
               <button
                 onClick={toggleMobileMenu}
                 className="p-2 rounded-md text-gray-700 dark:text-gray-300 hover:text-primary-500 dark:hover:text-primary-400 focus:outline-none"
@@ -125,7 +132,6 @@ const Navbar = ({ activeSection }) => {
           </div>
         </div>
 
-        
         {/* Mobile Navigation Menu */}
         {isMobileMenuOpen && (
           <motion.div
@@ -134,6 +140,20 @@ const Navbar = ({ activeSection }) => {
             exit={{ opacity: 0, height: 0 }}
             className="md:hidden px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white dark:bg-gray-900 rounded-lg shadow-lg mt-2"
           >
+            {/* Resume button in mobile menu */}
+            <motion.a
+              href="/vivekjoshi resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              className="block px-3 py-2 rounded-md text-base font-medium text-white bg-gradient-to-r from-primary-500 to-secondary-500 hover:opacity-90 transition-all duration-200 text-center"
+            >
+              Resume
+            </motion.a>
+            
+            <div className="border-t border-gray-200 dark:border-gray-700 my-2"></div>
+            
             {navItems.map((item, index) => (
               <motion.a
                 key={item.name}
