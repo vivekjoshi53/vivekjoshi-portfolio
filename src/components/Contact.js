@@ -155,7 +155,7 @@ ${formData.name}`;
     {
       icon: FaGithub,
       name: "GitHub",
-      url: "https://github.com/VIVEK JOSHI",
+      url: "https://github.com/vivekjoshi53",
       color: "text-gray-700 dark:text-gray-300",
       bgColor: "bg-gray-700"
     },
@@ -221,6 +221,11 @@ ${formData.name}`;
                 <motion.a
                   key={index}
                   href={info.link}
+                  onClick={(e) => {
+                    if (info.link === "#") {
+                      e.preventDefault(); // Prevent default behavior for "#" links
+                    }
+                  }}
                   variants={itemVariants}
                   whileHover={{ scale: 1.02, x: 10 }}
                   className="flex items-center space-x-4 p-4 bg-gray-50 dark:bg-gray-800 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-700 transition-all duration-300 group"
@@ -254,7 +259,14 @@ ${formData.name}`;
                     href={social.url}
                     target={social.onClick ? "_self" : "_blank"}
                     rel={social.onClick ? undefined : "noopener noreferrer"}
-                    onClick={social.onClick || undefined}
+                    onClick={(e) => {
+                      if (social.url === "#") {
+                        e.preventDefault(); // Prevent default behavior for "#" links
+                      }
+                      if (social.onClick) {
+                        social.onClick();
+                      }
+                    }}
                     whileHover={{ 
                       scale: 1.2, 
                       rotate: social.name === "WhatsApp" ? [0, -10, 10, 0] : 5,

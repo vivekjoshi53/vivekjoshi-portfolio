@@ -59,19 +59,13 @@ const Navbar = ({ activeSection }) => {
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          {/* Logo */}
-          <motion.div
-            whileHover={{ scale: 1.05 }}
-            className="flex-shrink-0 cursor-pointer"
-            onClick={() => scrollToSection('#home')}
-          >
-            <h1 className="text-2xl font-bold gradient-text">VJ</h1>
-          </motion.div>
+        <div className="grid grid-cols-3 items-center h-16">
+          {/* Empty left column for balance */}
+          <div className="flex justify-start"></div>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-8">
+          {/* Desktop Navigation - centered in middle column */}
+          <div className="hidden md:flex justify-center">
+            <div className="flex items-center space-x-8">
               {navItems.map((item, index) => (
                 <motion.a
                   key={item.name}
@@ -105,17 +99,32 @@ const Navbar = ({ activeSection }) => {
             </div>
           </div>
 
-          {/* Mobile menu button */}
-          <div className="md:hidden flex items-center">
-            <button
-              onClick={toggleMobileMenu}
-              className="p-2 rounded-md text-gray-700 dark:text-gray-300 hover:text-primary-500 dark:hover:text-primary-400 focus:outline-none"
-              aria-label="Toggle menu"
-            >
-              {isMobileMenuOpen ? <FiX size={24} /> : <FiMenu size={24} />}
-            </button>
+          {/* Resume Button - right side */}
+          <div className="flex justify-end">
+            <div className="hidden md:flex items-center">
+              <a 
+                href="/vivekjoshi resume.pdf" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="px-4 py-2 text-sm font-medium text-white bg-gradient-to-r from-primary-500 to-secondary-500 rounded-lg hover:opacity-90 transition-opacity duration-200"
+              >
+                Resume
+              </a>
+            </div>
+
+            {/* Mobile menu button */}
+            <div className="md:hidden flex items-center">
+              <button
+                onClick={toggleMobileMenu}
+                className="p-2 rounded-md text-gray-700 dark:text-gray-300 hover:text-primary-500 dark:hover:text-primary-400 focus:outline-none"
+                aria-label="Toggle menu"
+              >
+                {isMobileMenuOpen ? <FiX size={24} /> : <FiMenu size={24} />}
+              </button>
+            </div>
           </div>
         </div>
+
         
         {/* Mobile Navigation Menu */}
         {isMobileMenuOpen && (
