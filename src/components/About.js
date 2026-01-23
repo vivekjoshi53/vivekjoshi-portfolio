@@ -138,36 +138,7 @@ const About = ({ activeSection, setActiveSection }) => {
             <div className="relative">
               {/* Main Profile Picture */}
               <motion.div
-                variants={{
-                  hidden: { 
-                  y: 50, 
-                  opacity: 0,
-                },
-                visible: {
-                  y: 0,
-                  opacity: 1,
-                  transition: { 
-                    duration: 0.8, 
-                    ease: "easeOut",
-                    delay: 0.3
-                  }
-                },
-                exit: {
-                  y: -50,
-                  opacity: 0,
-                  transition: { 
-                    duration: 0.5, 
-                    ease: "easeIn"
-                  }
-                },
-                hover: {
-                  scale: 1.05,
-                  transition: { 
-                    duration: 0.3,
-                    ease: "easeInOut"
-                  }
-                }
-              }}
+                variants={profilePictureVariants}
                 whileHover="hover"
                 initial="hidden"
                 animate={isInView ? "visible" : "hidden"}
