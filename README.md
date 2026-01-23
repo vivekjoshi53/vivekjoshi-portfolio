@@ -1,6 +1,9 @@
 # Vivek Joshi - Developer Portfolio
 
-A modern, animated portfolio website built with React, Tailwind CSS, and Framer Motion showcasing the skills and projects of Vivek Joshi, a fresher developer and intern at Codage Habitation.
+A modern, animated portfolio website built with React, Tailwind CSS, and Framer Motion showcasing the skills and projects of Vivek Joshi, a Web Developer and intern at Codage Habitation.
+
+## 🌟 Live Demo
+Visit the live portfolio: [vivek-joshi-dev.vercel.app](https://vivek-joshi-dev.vercel.app)
 
 ## ✨ Features
 
