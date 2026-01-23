@@ -22,7 +22,7 @@ const Footer = () => {
       icon: FaGithub,
       name: "GitHub",
       url: "https://github.com/vivekjoshi53",
-      color: "hover:text-gray-600 dark:hover:text-gray-300"
+      color: "hover:text-gray-300"
     },
     {
       icon: FaTwitter,
@@ -63,7 +63,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-gray-900 dark:bg-black text-white">
+    <footer className="bg-black text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Main Footer Content */}
         <motion.div
@@ -94,7 +94,7 @@ const Footer = () => {
                   rel="noopener noreferrer"
                   whileHover={{ scale: 1.2, rotate: 5 }}
                   whileTap={{ scale: 0.9 }}
-                  className={`p-3 bg-gray-800 dark:bg-gray-900 rounded-lg text-gray-400 ${social.color} transition-all duration-300 hover:bg-gray-700 dark:hover:bg-gray-800`}
+                  className={`p-3 bg-gray-900 rounded-lg text-gray-400 ${social.color} transition-all duration-300 hover:bg-gray-800`}
                   aria-label={social.name}
                 >
                   <social.icon size={20} />
@@ -147,7 +147,7 @@ const Footer = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="py-6 border-t border-gray-800 dark:border-gray-900"
+          className="py-6 border-t border-gray-900"
         >
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <motion.p 

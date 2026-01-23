@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { FiSun, FiMoon } from 'react-icons/fi';
+import { FiMenu, FiX } from 'react-icons/fi';
 
-const Navbar = ({ darkMode, setDarkMode, activeSection }) => {
+const Navbar = ({ activeSection }) => {
   const [scrolled, setScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const navItems = [
     { name: 'Home', href: '#home' },
@@ -31,6 +32,10 @@ const Navbar = ({ darkMode, setDarkMode, activeSection }) => {
         block: 'start'
       });
     }
+  };
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
   const navVariants = {
@@ -100,32 +105,48 @@ const Navbar = ({ darkMode, setDarkMode, activeSection }) => {
             </div>
           </div>
 
-          {/* Theme Toggle */}
-          <div className="flex items-center space-x-4">
-            <motion.button
-              whileHover={{ scale: 1.1, rotate: 15 }}
-              whileTap={{ scale: 0.9 }}
-              onClick={() => setDarkMode(!darkMode)}
-              className="p-2 rounded-lg bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600 transition-all duration-200 shadow-md hover:shadow-lg"
+          {/* Mobile menu button */}
+          <div className="md:hidden flex items-center">
+            <button
+              onClick={toggleMobileMenu}
+              className="p-2 rounded-md text-gray-700 dark:text-gray-300 hover:text-primary-500 dark:hover:text-primary-400 focus:outline-none"
+              aria-label="Toggle menu"
             >
-              {darkMode ? <FiSun size={20} /> : <FiMoon size={20} />}
-            </motion.button>
+              {isMobileMenuOpen ? <FiX size={24} /> : <FiMenu size={24} />}
+            </button>
           </div>
         </div>
-      </div>
-      
-      {/* Progress bar */}
-      <div className="absolute bottom-0 left-0 right-0 h-1 bg-gray-200 dark:bg-gray-700">
-        <motion.div 
-          className="h-full bg-gradient-to-r from-primary-500 to-secondary-500"
-          initial={{ width: "0%" }}
-          animate={{ 
-            width: activeSection ? 
-              `${(navItems.findIndex(item => item.name.toLowerCase() === activeSection) + 1) * (100 / navItems.length)}%` 
-              : "0%"
-          }}
-          transition={{ duration: 0.5, ease: "easeOut" }}
-        />
+        
+        {/* Mobile Navigation Menu */}
+        {isMobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            className="md:hidden px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white dark:bg-gray-900 rounded-lg shadow-lg mt-2"
+          >
+            {navItems.map((item, index) => (
+              <motion.a
+                key={item.name}
+                href={item.href}
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollToSection(item.href);
+                  setIsMobileMenuOpen(false); // Close the mobile menu after clicking
+                }}
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                className={`block px-3 py-2 rounded-md text-base font-medium transition-all duration-200 ${
+                  activeSection === item.name.toLowerCase()
+                    ? 'text-primary-600 dark:text-primary-400 font-semibold bg-primary-50 dark:bg-gray-800'
+                    : 'text-gray-700 dark:text-gray-300 hover:text-primary-500 dark:hover:text-primary-400 hover:bg-gray-100 dark:hover:bg-gray-800'
+                }`}
+              >
+                {item.name}
+              </motion.a>
+            ))}
+          </motion.div>
+        )}
       </div>
     </motion.nav>
   );

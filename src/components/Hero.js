@@ -66,7 +66,7 @@ const Hero = ({ activeSection, setActiveSection }) => {
   // ];
 
   return (
-    <section id="home" ref={sectionRef} className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-gray-50 via-blue-50 to-purple-50 dark:from-gray-900 dark:via-blue-900/20 dark:to-purple-900/20">
+    <section id="home" ref={sectionRef} className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-gray-900 via-blue-900/20 to-purple-900/20">
       {/* Enhanced Animated Background */}
       <div className="absolute inset-0">
         {/* Gradient waves */}
@@ -159,7 +159,7 @@ const Hero = ({ activeSection, setActiveSection }) => {
               animate={{ scale: 1 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
             >
-              <span className="block text-gray-900 dark:text-white">Hi, I'm</span>
+              <span className="block text-white">Hi, I'm</span>
               <span className="block gradient-text mt-2">Vivek Joshi</span>
             </motion.h1>
           </motion.div>
@@ -167,13 +167,13 @@ const Hero = ({ activeSection, setActiveSection }) => {
           {/* Animated Typing Effect */}
           <motion.div variants={itemVariants}>
             <motion.p 
-              className="text-xl sm:text-2xl lg:text-3xl text-gray-600 dark:text-gray-300 font-light"
+              className="text-xl sm:text-2xl lg:text-3xl text-gray-300 font-light"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 1, delay: 0.5 }}
             >
               Fresher Developer & Intern at{' '}
-              <span className="font-semibold text-primary-600 dark:text-primary-400">
+              <span className="font-semibold text-primary-400">
                 Codage Habitation
               </span>
             </motion.p>
@@ -181,7 +181,7 @@ const Hero = ({ activeSection, setActiveSection }) => {
 
           {/* Description */}
           <motion.div variants={itemVariants}>
-            <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto leading-relaxed">
+            <p className="text-lg text-gray-400 max-w-2xl mx-auto leading-relaxed">
               Passionate about creating innovative web solutions with modern technologies. 
               Specializing in React, Node.js, and full-stack development.
             </p>
@@ -224,7 +224,7 @@ const Hero = ({ activeSection, setActiveSection }) => {
               rel="noopener noreferrer"
               whileHover={{ scale: 1.2, rotate: 5 }}
               whileTap={{ scale: 0.9 }}
-              className="p-3 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-primary-500 hover:text-white transition-all duration-300"
+              className="p-3 rounded-full bg-gray-700 text-gray-300 hover:bg-primary-500 hover:text-white transition-all duration-300"
             >
               <FiGithub size={24} />
             </motion.a>
@@ -238,9 +238,9 @@ const Hero = ({ activeSection, setActiveSection }) => {
         animate={{ y: [0, 10, 0] }}
         transition={{ duration: 2, repeat: Infinity }}
       >
-        <div className="w-6 h-10 border-2 border-gray-400 dark:border-gray-600 rounded-full flex justify-center">
+        <div className="w-6 h-10 border-2 border-gray-600 rounded-full flex justify-center">
           <motion.div
-            className="w-1 h-3 bg-gray-400 dark:bg-gray-600 rounded-full mt-2"
+            className="w-1 h-3 bg-gray-600 rounded-full mt-2"
             animate={{ y: [0, 12, 0] }}
             transition={{ duration: 2, repeat: Infinity }}
           />

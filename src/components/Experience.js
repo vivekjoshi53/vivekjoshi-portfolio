@@ -60,6 +60,7 @@ const Experience = ({ activeSection, setActiveSection }) => {
   };
 
   const experiences = [
+    
     {
       title: "Developer Intern",
       company: "Codage Habitation",
@@ -133,7 +134,7 @@ const Experience = ({ activeSection, setActiveSection }) => {
                 variants={timelineVariants}
                 initial="hidden"
                 animate={isInView ? "visible" : "hidden"}
-                className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary-500 to-secondary-500 origin-top"
+                className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary-500 to-secondary-500 origin-top z-0"
               />
 
               {experiences.map((exp, index) => (
@@ -142,10 +143,10 @@ const Experience = ({ activeSection, setActiveSection }) => {
                   variants={itemVariants}
                   initial="hidden"
                   animate={isInView ? "visible" : "hidden"}
-                  className="relative flex items-start space-x-6 pb-12"
+                  className="relative flex items-start space-x-6 pb-12 pl-16"
                 >
                   {/* Timeline Dot */}
-                  <div className="flex-shrink-0 relative">
+                  <div className="flex-shrink-0 relative -left-16 top-4 z-10">
                     <motion.div
                       whileHover={{ scale: 1.2 }}
                       className={`w-16 h-16 rounded-full flex items-center justify-center ${
@@ -168,7 +169,7 @@ const Experience = ({ activeSection, setActiveSection }) => {
                   {/* Content */}
                   <motion.div
                     whileHover={{ scale: 1.02 }}
-                    className="flex-1 bg-white dark:bg-gray-900 p-6 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 hover:border-primary-300 dark:hover:border-primary-600 transition-all duration-300"
+                    className="flex-1 bg-white dark:bg-gray-900 p-6 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 hover:border-primary-300 dark:hover:border-primary-600 transition-all duration-300 relative z-10"
                   >
                     <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4">
                       <div>

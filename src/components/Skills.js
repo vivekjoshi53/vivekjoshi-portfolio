@@ -104,7 +104,7 @@ const Skills = ({ activeSection, setActiveSection }) => {
   ];
 
   return (
-    <section id="skills" className="py-20 bg-gray-50 dark:bg-gray-800">
+    <section id="skills" className="py-20 bg-gray-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           ref={ref}
@@ -115,7 +115,7 @@ const Skills = ({ activeSection, setActiveSection }) => {
         >
           <motion.h2 
             variants={itemVariants}
-            className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4"
+            className="text-4xl md:text-5xl font-bold text-white mb-4"
           >
             My <span className="gradient-text">Skills</span>
           </motion.h2>
@@ -125,7 +125,7 @@ const Skills = ({ activeSection, setActiveSection }) => {
           />
           <motion.p 
             variants={itemVariants}
-            className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto"
+            className="text-lg text-gray-300 max-w-2xl mx-auto"
           >
             Here are the technologies and tools I work with to bring ideas to life
           </motion.p>
@@ -140,7 +140,7 @@ const Skills = ({ activeSection, setActiveSection }) => {
               animate={isInView ? "visible" : "hidden"}
               className="space-y-6"
             >
-              <h3 className="text-2xl font-semibold text-gray-900 dark:text-white text-center mb-8">
+              <h3 className="text-2xl font-semibold text-white text-center mb-8">
                 {category.title}
               </h3>
               
@@ -153,12 +153,12 @@ const Skills = ({ activeSection, setActiveSection }) => {
                       scale: 1.02,
                       boxShadow: "0 8px 25px rgba(0,0,0,0.1)"
                     }}
-                    className="bg-white dark:bg-gray-900 p-6 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 hover:border-primary-300 dark:hover:border-primary-600 transition-all duration-300"
+                    className="bg-gray-900 p-6 rounded-xl shadow-sm border border-gray-700 hover:border-primary-600 transition-all duration-300"
                   >
                     <div className="flex items-center justify-between mb-4">
                       <div className="flex items-center space-x-3">
                         {React.createElement(skill.icon, { className: `text-2xl ${skill.color}` })}
-                        <span className="font-medium text-gray-900 dark:text-white">
+                        <span className="font-medium text-white">
                           {skill.name}
                         </span>
                       </div>
@@ -180,19 +180,19 @@ const Skills = ({ activeSection, setActiveSection }) => {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             <div className="space-y-2">
               <div className="text-3xl font-bold gradient-text">12+</div>
-              <div className="text-gray-600 dark:text-gray-400">Technologies</div>
+              <div className="text-gray-400">Technologies</div>
             </div>
             <div className="space-y-2">
               <div className="text-3xl font-bold gradient-text">6+</div>
-              <div className="text-gray-600 dark:text-gray-400">Months Learning</div>
+              <div className="text-gray-400">Months Learning</div>
             </div>
             <div className="space-y-2">
               <div className="text-3xl font-bold gradient-text">5+</div>
-              <div className="text-gray-600 dark:text-gray-400">Projects Built</div>
+              <div className="text-gray-400">Projects Built</div>
             </div>
             <div className="space-y-2">
               <div className="text-3xl font-bold gradient-text">100%</div>
-              <div className="text-gray-600 dark:text-gray-400">Dedication</div>
+              <div className="text-gray-400">Dedication</div>
             </div>
           </div>
         </motion.div>

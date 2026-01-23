@@ -129,7 +129,7 @@ const Projects = ({ activeSection, setActiveSection }) => {
   const otherProjects = projects.filter(project => !project.featured);
 
   return (
-    <section id="projects" className="py-20 bg-white dark:bg-gray-900">
+    <section id="projects" className="py-20 bg-gray-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           ref={ref}
@@ -140,7 +140,7 @@ const Projects = ({ activeSection, setActiveSection }) => {
         >
           <motion.h2 
             variants={itemVariants}
-            className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4"
+            className="text-4xl md:text-5xl font-bold text-white mb-4"
           >
             My <span className="gradient-text">Projects</span>
           </motion.h2>
@@ -150,7 +150,7 @@ const Projects = ({ activeSection, setActiveSection }) => {
           />
           <motion.p 
             variants={itemVariants}
-            className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto"
+            className="text-lg text-gray-300 max-w-2xl mx-auto"
           >
             Here are some of the projects I've worked on, showcasing my skills and passion for development
           </motion.p>
@@ -165,7 +165,7 @@ const Projects = ({ activeSection, setActiveSection }) => {
         >
           <motion.h3 
             variants={itemVariants}
-            className="text-2xl font-semibold text-gray-900 dark:text-white mb-8 text-center"
+            className="text-2xl font-semibold text-white mb-8 text-center"
           >
             Featured Projects
           </motion.h3>
@@ -182,7 +182,7 @@ const Projects = ({ activeSection, setActiveSection }) => {
                   boxShadow: "0 25px 50px rgba(0,0,0,0.2)",
                   scale: 1.02
                 }}
-                className="group bg-white dark:bg-gray-800 rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-700 hover:border-primary-300 dark:hover:border-primary-600 transition-all duration-500 relative"
+                className="group bg-gray-800 rounded-2xl overflow-hidden border border-gray-700 hover:border-primary-600 transition-all duration-500 relative"
               >
                 {/* Status Badge */}
                 <div className={`absolute top-4 left-4 z-10 px-3 py-1 rounded-full text-xs font-semibold ${
@@ -243,7 +243,7 @@ const Projects = ({ activeSection, setActiveSection }) => {
                 
                 <div className="p-6">
                   <div className="flex items-start justify-between mb-3">
-                    <h4 className="text-xl font-bold text-gray-900 dark:text-white">
+                    <h4 className="text-xl font-bold text-white">
                       {project.title}
                     </h4>
                     <motion.div
@@ -254,7 +254,7 @@ const Projects = ({ activeSection, setActiveSection }) => {
                     </motion.div>
                   </div>
                   
-                  <p className="text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">
+                  <p className="text-gray-300 mb-4 leading-relaxed">
                     {project.description}
                   </p>
                   
@@ -263,7 +263,7 @@ const Projects = ({ activeSection, setActiveSection }) => {
                       <motion.span
                         key={techIndex}
                         whileHover={{ scale: 1.05 }}
-                        className="px-3 py-1 bg-gradient-to-r from-primary-100 to-secondary-100 dark:from-primary-900/30 dark:to-secondary-900/30 text-primary-700 dark:text-primary-300 rounded-full text-sm font-medium shadow-sm"
+                        className="px-3 py-1 bg-gradient-to-r from-primary-900/30 to-secondary-900/30 text-primary-300 rounded-full text-sm font-medium shadow-sm"
                       >
                         {tech}
                       </motion.span>
@@ -271,7 +271,7 @@ const Projects = ({ activeSection, setActiveSection }) => {
                   </div>
                   
                   {/* Project stats */}
-                  <div className="flex justify-between text-sm text-gray-500 dark:text-gray-400">
+                  <div className="flex justify-between text-sm text-gray-400">
                     <span>⭐ Featured Project</span>
                     <span>{project.tech.length} technologies</span>
                   </div>
@@ -289,7 +289,7 @@ const Projects = ({ activeSection, setActiveSection }) => {
         >
           <motion.h3 
             variants={itemVariants}
-            className="text-2xl font-semibold text-gray-900 dark:text-white mb-8 text-center"
+            className="text-2xl font-semibold text-white mb-8 text-center"
           >
             Other Projects
           </motion.h3>
@@ -303,7 +303,7 @@ const Projects = ({ activeSection, setActiveSection }) => {
                   y: -5,
                   boxShadow: "0 10px 25px rgba(0,0,0,0.1)"
                 }}
-                className="group bg-gray-50 dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700 hover:border-primary-300 dark:hover:border-primary-600 transition-all duration-300"
+                className="group bg-gray-800 p-6 rounded-xl border border-gray-700 hover:border-primary-600 transition-all duration-300"
               >
                 <div className="flex items-start justify-between mb-4">
                   <div className="p-3 bg-gradient-to-br from-primary-500 to-secondary-500 rounded-lg">
@@ -329,10 +329,10 @@ const Projects = ({ activeSection, setActiveSection }) => {
                   </div>
                 </div>
                 
-                <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
+                <h4 className="text-lg font-semibold text-white mb-2">
                   {project.title}
                 </h4>
-                <p className="text-gray-600 dark:text-gray-300 mb-4 text-sm leading-relaxed">
+                <p className="text-gray-300 mb-4 text-sm leading-relaxed">
                   {project.description}
                 </p>
                 <div className="flex flex-wrap gap-2">

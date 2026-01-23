@@ -106,7 +106,7 @@ const About = ({ activeSection, setActiveSection }) => {
   ];
 
   return (
-    <section id="about" className="py-20 bg-white dark:bg-gray-900">
+    <section id="about" className="py-20 bg-gray-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           ref={ref}
@@ -117,7 +117,7 @@ const About = ({ activeSection, setActiveSection }) => {
         >
           <motion.h2 
             variants={itemVariants}
-            className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4"
+            className="text-4xl md:text-5xl font-bold text-white mb-4"
           >
             About <span className="gradient-text">Me</span>
           </motion.h2>
@@ -142,7 +142,7 @@ const About = ({ activeSection, setActiveSection }) => {
                 whileHover="hover"
                 className="relative z-10"
               >
-                <div className="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-white dark:border-gray-800 shadow-2xl">
+                <div className="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-gray-800 shadow-2xl">
                   <img 
                     src="/img1.webp" 
                     alt="Vivek Joshi - Developer Portrait"
@@ -208,14 +208,14 @@ const About = ({ activeSection, setActiveSection }) => {
           >
             <motion.h3 
               variants={itemVariants}
-              className="text-2xl md:text-3xl font-semibold text-gray-900 dark:text-white"
+              className="text-2xl md:text-3xl font-semibold text-white"
             >
               Passionate Developer Building the Future
             </motion.h3>
             
             <motion.p 
               variants={itemVariants}
-              className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed"
+              className="text-lg text-gray-300 leading-relaxed"
             >
               I'm currently pursuing BCA Semester 6 at Bholabhai Patel College of Computer Studies (KSV), 
               while also working as a Developer Intern at Codage Habitation since December 2025. 
@@ -225,7 +225,7 @@ const About = ({ activeSection, setActiveSection }) => {
             
             <motion.p 
               variants={itemVariants}
-              className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed"
+              className="text-lg text-gray-300 leading-relaxed"
             >
               Alongside my internship, I actively engage in freelance development projects, 
               allowing me to broaden my skillset and work with diverse clients and technologies. 
@@ -238,13 +238,13 @@ const About = ({ activeSection, setActiveSection }) => {
               variants={itemVariants}
               className="flex flex-wrap gap-4 pt-4"
             >
-              <span className="px-4 py-2 bg-primary-100 dark:bg-primary-900/30 text-primary-700 dark:text-primary-300 rounded-full text-sm font-medium">
+              <span className="px-4 py-2 bg-primary-900/30 text-primary-300 rounded-full text-sm font-medium">
                 Problem Solver
               </span>
-              <span className="px-4 py-2 bg-secondary-100 dark:bg-secondary-900/30 text-secondary-700 dark:text-secondary-300 rounded-full text-sm font-medium">
+              <span className="px-4 py-2 bg-secondary-900/30 text-secondary-300 rounded-full text-sm font-medium">
                 Quick Learner
               </span>
-              <span className="px-4 py-2 bg-accent-100 dark:bg-accent-900/30 text-accent-700 dark:text-accent-300 rounded-full text-sm font-medium">
+              <span className="px-4 py-2 bg-accent-900/30 text-accent-300 rounded-full text-sm font-medium">
                 Team Collaborator
               </span>
             </motion.div>
@@ -255,7 +255,7 @@ const About = ({ activeSection, setActiveSection }) => {
         <div className="mt-16">
           <motion.h3 
             variants={itemVariants}
-            className="text-2xl md:text-3xl font-semibold text-gray-900 dark:text-white text-center mb-12"
+            className="text-2xl md:text-3xl font-semibold text-white text-center mb-12"
           >
             My Core <span className="gradient-text">Values</span>
           </motion.h3>
@@ -273,7 +273,7 @@ const About = ({ activeSection, setActiveSection }) => {
                   scale: 1.02,
                   boxShadow: "0 10px 30px rgba(0,0,0,0.1)"
                 }}
-                className="p-6 bg-gray-50 dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 hover:border-primary-300 dark:hover:border-primary-600 transition-all duration-300"
+                className="p-6 bg-gray-800 rounded-xl border border-gray-700 hover:border-primary-600 transition-all duration-300"
               >
                 <div className="flex items-start space-x-4">
                   <div className="flex-shrink-0">
@@ -282,10 +282,10 @@ const About = ({ activeSection, setActiveSection }) => {
                     </div>
                   </div>
                   <div>
-                    <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
+                    <h4 className="text-xl font-semibold text-white mb-2">
                       {highlight.title}
                     </h4>
-                    <p className="text-gray-600 dark:text-gray-300">
+                    <p className="text-gray-300">
                       {highlight.description}
                     </p>
                   </div>
