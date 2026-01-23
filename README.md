@@ -5,6 +5,8 @@ A modern, animated portfolio website built with React, Tailwind CSS, and Framer 
 ## 🌟 Live Demo
 Visit the live portfolio: [vivek-joshi-dev.vercel.app](https://vivek-joshi-dev.vercel.app)
 
+*Last updated: January 2026*
+
 ## ✨ Features
 
 - **Animated Loading Screen** - Full-screen intro with smooth text reveals
