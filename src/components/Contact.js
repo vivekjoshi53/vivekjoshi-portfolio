@@ -379,17 +379,6 @@ ${formData.name}`;
                 )}
               </motion.button>
             </form>
-
-            <div className="mt-6 p-4 bg-primary-50 dark:bg-primary-900/20 rounded-lg border border-primary-200 dark:border-primary-800">
-              <div className="flex items-start space-x-3">
-               
-                <div>
-                  <p className="text-sm text-gray-700 dark:text-gray-300">
-                  
-                  </p>
-                </div>
-              </div>
-            </div>
           </motion.div>
         </div>
       </div>
