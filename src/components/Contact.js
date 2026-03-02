@@ -83,7 +83,7 @@ Best regards,
 ${formData.name}`;
 
     const encodedMessage = encodeURIComponent(message);
-    const whatsappUrl = `https://wa.me/9106129458?text=${encodedMessage}`;
+    const whatsappUrl = `https://wa.me/+91 9106129458?text=${encodedMessage}`;
     
     try {
       // Open WhatsApp in new tab
@@ -111,10 +111,10 @@ ${formData.name}`;
 
   const handleWhatsAppClick = () => {
     const quickMessage = encodeURIComponent("Hi Vivek! I saw your portfolio and would like to connect.");
-    const whatsappUrl = `https://wa.me/9106129458?text=${quickMessage}`;
+    const whatsappUrl = `https://wa.me/+91 9106129458?text=${quickMessage}`;
     window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
   };
-
+    
   const contactInfo = [
     {
       icon: FiMail,
@@ -126,7 +126,7 @@ ${formData.name}`;
       icon: FiPhone,
       title: "Phone",
       value: "+91 9106129458",
-      link: "tel:+919106129458"
+      link: "tel:+91 9106129458"
     },
     {
       icon: FiMapPin,

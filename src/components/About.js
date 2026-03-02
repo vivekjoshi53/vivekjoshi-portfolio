@@ -147,7 +147,7 @@ const About = ({ activeSection, setActiveSection }) => {
               >
                 <div className="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border border-white/30 backdrop-blur-sm shadow-xl bg-white/10">
                   <img 
-                    src="/img1.webp" 
+                    src="/IMG_20260227_173700.png" 
                     alt="Vivek Joshi - Developer Portrait"
                     className="w-full h-full object-cover"
                   />
