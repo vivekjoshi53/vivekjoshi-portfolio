@@ -131,7 +131,7 @@ ${formData.name}`;
     {
       icon: FiMapPin,
       title: "Location",
-      value: "India",
+      value: "Kalol",
       link: "#"
     }
   ];
